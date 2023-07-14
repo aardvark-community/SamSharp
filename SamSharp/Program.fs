@@ -233,7 +233,8 @@ let main _args =
         ) |> ignore
         res
     
-    result.SaveImageSharp "/Users/schorsch/Desktop/segment.png"
+    let outputPath = Path.combine [Environment.GetFolderPath Environment.SpecialFolder.Desktop; "segment.png"]
+    result.SaveImageSharp outputPath
     
     
     exit 0
