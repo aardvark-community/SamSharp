@@ -1,4 +1,6 @@
-﻿open System
+﻿namespace SamSharp
+
+open System
 open Microsoft.ML.OnnxRuntime
 open Aardvark.Base
 open SixLabors.ImageSharp
@@ -12,7 +14,7 @@ type Query =
     | Point of point : V2i * label : int
     | Rectangle of Box2i * label : int
 
-module Utilities =
+module private Utilities =
     open System.IO
     
     let get (name : string) =
@@ -49,16 +51,13 @@ module NativeVolume =
         use mem = d.Buffer.Pin()
         action (NativeVolume<'a>(NativePtr.ofVoidPtr mem.Pointer, VolumeInfo(0L, V3l size, V3l delta)))
   
-type SamIndex =
-    {
-        Decoder : InferenceSession
-        Encoded : DenseTensor<float32>
-        InputSize : V2i
-        ImageSize : V2i
-    }
+type SamIndex internal(decoder : InferenceSession, embedding : DenseTensor<float32>, inputSize : V2i, imageSize : V2i) =
+
+    member x.InputSize = inputSize
+    member x.ImageSize = imageSize
     
     member x.Query (query : list<Query>) =
-        let scale = V2d x.ImageSize / V2d x.InputSize
+        let scale = V2d imageSize / V2d inputSize
         
         let inputPoints, inputLabels =
             let inline transform (pt : V2i) =
@@ -92,16 +91,16 @@ type SamIndex =
             
         let decoderInput =
             [
-                NamedOnnxValue.CreateFromTensor("image_embeddings", x.Encoded)
+                NamedOnnxValue.CreateFromTensor("image_embeddings", embedding)
                 NamedOnnxValue.CreateFromTensor("point_coords", inputPoints)
                 NamedOnnxValue.CreateFromTensor("point_labels", inputLabels)
                 NamedOnnxValue.CreateFromTensor("has_mask_input", DenseTensor(Memory [|0.0f|], ReadOnlySpan [|1|]))
                 NamedOnnxValue.CreateFromTensor("mask_input", DenseTensor(Memory (Array.zeroCreate<float32> (256*256)), ReadOnlySpan [|1;1;256;256|]))
-                NamedOnnxValue.CreateFromTensor("orig_im_size", DenseTensor(Memory [|float32 x.InputSize.Y; float32 x.InputSize.X|], ReadOnlySpan [|2|]))
+                NamedOnnxValue.CreateFromTensor("orig_im_size", DenseTensor(Memory [|float32 inputSize.Y; float32 inputSize.X|], ReadOnlySpan [|2|]))
             ]
             
                 
-        let res = x.Decoder.Run(decoderInput)
+        let res = decoder.Run(decoderInput)
         
         let masks = res |> Seq.find (fun r -> r.Name = "masks")
         let masks = masks.Value :?> DenseTensor<float32>
@@ -189,55 +188,8 @@ type Sam(encoder : InferenceSession, decoder : InferenceSession, ?maxSize : int)
         
         let imageEmbedding = Seq.head(res).Value :?> DenseTensor<float32>
         
-        // let t = Tensor4<float32>(V4i(imageEmbedding.Dimensions.ToArray()))
-        // NativeTensor4.using t (fun dst ->
-        //     NativeTensor4.useDense imageEmbedding (fun src ->
-        //         NativeTensor4.copy src dst    
-        //     )    
-        // )
-        {
-            Decoder = sam.Decoder
-            Encoded = imageEmbedding
-            InputSize = image.Size
-            ImageSize = scaledImage.Size
-        }
-
+        SamIndex(sam.Decoder, imageEmbedding, image.Size, scaledImage.Size)
         
         
     
-        
-        
-[<EntryPoint>]
-let main _args =
-    Aardvark.Init()
-    use sam = new Sam()
-    
-    let imagePath = Path.combine [__SOURCE_DIRECTORY__; ".."; "images"; "truck.jpg"]
-    
-    let image = PixImageSharp.Create imagePath
-    Log.startTimed "encode"
-    let index = sam.BuildIndex image
-    Log.stop()
-    
-    Log.startTimed "decode"
-    let mat =
-        index.Query [
-            Point(V2i(750, 375), 1)
-        ]
-    Log.stop()
-    
-    let result =
-        let res = image.ToPixImage<byte>().Copy()
-        res.GetMatrix<C4b>().SetMap2 (res.GetMatrix<C4b>(), mat, fun old value ->
-            lerp old C4b.Red (0.7 * float value)    
-        ) |> ignore
-        res
-    
-    let outputPath = Path.combine [Environment.GetFolderPath Environment.SpecialFolder.Desktop; "segment.png"]
-    result.SaveImageSharp outputPath
-    
-    
-    exit 0
-    
-    
-    0
+  
