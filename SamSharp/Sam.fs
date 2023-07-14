@@ -161,8 +161,8 @@ type Sam(encoder : InferenceSession, decoder : InferenceSession) =
     
     new(?options : SessionOptions) = new Sam(defaultEncoderPath.Value, defaultDecoderPath.Value, ?options = options)
     
-    member x.BuildIndex(image : PixImage, ?maxSize : int) =
-        let maxSize = defaultArg maxSize defaultMaxSize
+    member x.BuildIndex(image : PixImage) =
+        let maxSize = defaultMaxSize
     
         let sam = x
         let processingSize =

@@ -12,7 +12,7 @@ let main _args =
     let image = PixImageSharp.Create imagePath
     
     Log.startTimed "encode"
-    let index = sam.BuildIndex image
+    let index = sam.BuildIndex(image)
     Log.stop()
     
     Log.startTimed "decode"
