@@ -76,3 +76,13 @@ type CameraModel =
     member x.bounds = x.current.bounds x.viewportSize
     member x.fromPixel (p : V2d) = x.current.fromPixel(p, x.viewportSize)
     member x.toPixel (p : V2d) = x.current.toPixel(p, x.viewportSize)
+    
+[<ModelType>]
+type Model =
+    {
+        Camera  : CameraModel
+        File    : option<string>
+        Image   : option<PixImage>
+        Index   : option<SamSharp.SamIndex>
+        Mask    : option<Matrix<float32>>
+    }

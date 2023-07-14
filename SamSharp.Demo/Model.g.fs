@@ -1,5 +1,5 @@
-//8bfcaf21-9db5-b7be-6362-096592f8d86f
-//45cf4fda-ba83-6619-e7a1-40e27412df7a
+//9b93b108-a6c7-9bd5-83a8-0bd41cb1a156
+//059b6a36-5530-a93e-a3f1-5e0aacb3abeb
 #nowarn "49" // upper case patterns
 #nowarn "66" // upcast is unncecessary
 #nowarn "1337" // internal types
@@ -71,4 +71,30 @@ type AdaptiveCameraModel(value : CameraModel) =
     member __.lastPos = __value.lastPos
     member __.lastTime = __value.lastTime
     member __.camera = _camera_ :> FSharp.Data.Adaptive.aval<Aardvark.Rendering.Camera>
+[<System.Diagnostics.CodeAnalysis.SuppressMessage("NameConventions", "*")>]
+type AdaptiveModel(value : Model) =
+    let _Camera_ = AdaptiveCameraModel(value.Camera)
+    let _File_ = FSharp.Data.Adaptive.cval(value.File)
+    let _Image_ = FSharp.Data.Adaptive.cval(value.Image)
+    let _Index_ = FSharp.Data.Adaptive.cval(value.Index)
+    let _Mask_ = FSharp.Data.Adaptive.cval(value.Mask)
+    let mutable __value = value
+    let __adaptive = FSharp.Data.Adaptive.AVal.custom((fun (token : FSharp.Data.Adaptive.AdaptiveToken) -> __value))
+    static member Create(value : Model) = AdaptiveModel(value)
+    static member Unpersist = Adaptify.Unpersist.create (fun (value : Model) -> AdaptiveModel(value)) (fun (adaptive : AdaptiveModel) (value : Model) -> adaptive.Update(value))
+    member __.Update(value : Model) =
+        if Microsoft.FSharp.Core.Operators.not((FSharp.Data.Adaptive.ShallowEqualityComparer<Model>.ShallowEquals(value, __value))) then
+            __value <- value
+            __adaptive.MarkOutdated()
+            _Camera_.Update(value.Camera)
+            _File_.Value <- value.File
+            _Image_.Value <- value.Image
+            _Index_.Value <- value.Index
+            _Mask_.Value <- value.Mask
+    member __.Current = __adaptive
+    member __.Camera = _Camera_
+    member __.File = _File_ :> FSharp.Data.Adaptive.aval<Microsoft.FSharp.Core.option<Microsoft.FSharp.Core.string>>
+    member __.Image = _Image_ :> FSharp.Data.Adaptive.aval<Microsoft.FSharp.Core.option<Aardvark.Base.PixImage>>
+    member __.Index = _Index_ :> FSharp.Data.Adaptive.aval<Microsoft.FSharp.Core.option<SamSharp.SamIndex>>
+    member __.Mask = _Mask_ :> FSharp.Data.Adaptive.aval<Microsoft.FSharp.Core.option<Aardvark.Base.Matrix<Microsoft.FSharp.Core.float32>>>
 

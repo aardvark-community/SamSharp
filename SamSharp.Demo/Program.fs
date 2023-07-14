@@ -21,7 +21,7 @@ let main args =
         if args.Length > 0 then args.[0]
         else Path.combine [__SOURCE_DIRECTORY__; ".."; "images"; "plants.png"]
         
-    let run (ctx : DomContext) = 
+    let run (ctx : DomContext) =
         App.start ctx (App.app file)
 
 
@@ -38,6 +38,8 @@ let main args =
         .Start()
     
     Aardium.run {
+        width 1280
+        height 720
         url "http://localhost:4321"
     }
     
