@@ -1,36 +1,44 @@
-﻿open System
+﻿open Aardvark.Application.Slim
 open Aardvark.Base
-open SamSharp
+open Aardvark.Dom
+open Microsoft.Extensions.Hosting
+open Microsoft.AspNetCore.Builder
+open Microsoft.AspNetCore.Hosting
+open Giraffe
+open Aardvark.Dom.Remote
+open SamSharp.Demo
+open Aardium
 
-        
+
 [<EntryPoint>]
-let main _args =
+let main args =
     Aardvark.Init()
-    use sam = new Sam()
+    Aardium.init()
+    let app = new OpenGlApplication()
+
+
+    let file =
+        if args.Length > 0 then args.[0]
+        else Path.combine [__SOURCE_DIRECTORY__; ".."; "images"; "plants.png"]
+        
+    let run (ctx : DomContext) = 
+        App.start ctx (App.app file)
+
+
+    Host.CreateDefaultBuilder()
+        .ConfigureWebHostDefaults(
+            fun webHostBuilder ->
+                webHostBuilder.UseUrls("http://localhost:4321")
+                    .UseSockets()
+                    .Configure(fun b -> b.UseWebSockets().UseGiraffe (DomNode.toRoute app.Runtime run))
+                    .ConfigureServices(fun s -> s.AddGiraffe() |> ignore)
+                    |> ignore
+        )
+        .Build()
+        .Start()
     
-    let imagePath = Path.combine [__SOURCE_DIRECTORY__; ".."; "images"; "truck.jpg"]
-    let image = PixImageSharp.Create imagePath
+    Aardium.run {
+        url "http://localhost:4321"
+    }
     
-    Log.startTimed "encode"
-    let index = sam.BuildIndex(image)
-    Log.stop()
-    
-    Log.startTimed "decode"
-    let mat =
-        index.Query [
-            Point(V2i(610, 400), 1)
-        ]
-    Log.stop()
-    
-    Log.startTimed "save output"
-    let result =
-        let res = image.ToPixImage<byte>().Copy()
-        res.GetMatrix<C4b>().SetMap2 (res.GetMatrix<C4b>(), mat, fun old value ->
-            lerp old C4b.Cyan (0.7 * float value)    
-        ) |> ignore
-        res
-    
-    let outputPath = Path.combine [Environment.GetFolderPath Environment.SpecialFolder.Desktop; "segment.png"]
-    result.SaveImageSharp outputPath
-    Log.stop()
     0
