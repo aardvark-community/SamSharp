@@ -10,17 +10,17 @@ open Microsoft.FSharp.NativeInterop
 
 #nowarn "9"
 
-type Query =
-    | Point of point : V2i * label : int
-    | Rectangle of Box2i * label : int
 
+[<AutoOpen>]
 module private Utilities =
     open System.IO
     
+    type Marker = Marker
+    
     let get (name : string) =
-        let names = typeof<Query>.Assembly.GetManifestResourceNames() 
+        let names = typeof<Marker>.Assembly.GetManifestResourceNames() 
         let name = names |> Array.find (fun n -> n.EndsWith name)
-        use s = typeof<Query>.Assembly.GetManifestResourceStream(name)
+        use s = typeof<Marker>.Assembly.GetManifestResourceStream(name)
         use a = new System.IO.Compression.ZipArchive(s, System.IO.Compression.ZipArchiveMode.Read)
         
         let path = Path.Combine(Environment.GetFolderPath Environment.SpecialFolder.LocalApplicationData)
@@ -34,23 +34,28 @@ module private Utilities =
         use fs = File.OpenWrite output
         s.CopyTo fs
         output
-        
-module NativeTensor4 =
-    let useDense (d : DenseTensor<'a>) (action : NativeTensor4<'a> -> 'x) =
-        let delta = d.Strides.ToArray() |> V4i
-        let size = d.Dimensions.ToArray() |> V4i
-        
-        use mem = d.Buffer.Pin()
-        action (NativeTensor4<'a>(NativePtr.ofVoidPtr mem.Pointer, Tensor4Info(0L, V4l size, V4l delta)))
-        
-module NativeVolume =
-    let useDense (d : DenseTensor<'a>) (action : NativeVolume<'a> -> 'x) =
-        let delta = d.Strides.ToArray() |> V3i
-        let size = d.Dimensions.ToArray() |> V3i
-        
-        use mem = d.Buffer.Pin()
-        action (NativeVolume<'a>(NativePtr.ofVoidPtr mem.Pointer, VolumeInfo(0L, V3l size, V3l delta)))
-  
+            
+    module NativeTensor4 =
+        let useDense (d : DenseTensor<'a>) (action : NativeTensor4<'a> -> 'x) =
+            let delta = d.Strides.ToArray() |> V4i
+            let size = d.Dimensions.ToArray() |> V4i
+            
+            use mem = d.Buffer.Pin()
+            action (NativeTensor4<'a>(NativePtr.ofVoidPtr mem.Pointer, Tensor4Info(0L, V4l size, V4l delta)))
+            
+    module NativeVolume =
+        let useDense (d : DenseTensor<'a>) (action : NativeVolume<'a> -> 'x) =
+            let delta = d.Strides.ToArray() |> V3i
+            let size = d.Dimensions.ToArray() |> V3i
+            
+            use mem = d.Buffer.Pin()
+            action (NativeVolume<'a>(NativePtr.ofVoidPtr mem.Pointer, VolumeInfo(0L, V3l size, V3l delta)))
+
+type Query =
+    | Point of point : V2i * label : int
+    | Rectangle of Box2i * label : int
+
+      
 type SamIndex internal(decoder : InferenceSession, embedding : DenseTensor<float32>, inputSize : V2i, imageSize : V2i) =
 
     member x.InputSize = inputSize
@@ -124,16 +129,12 @@ type SamIndex internal(decoder : InferenceSession, embedding : DenseTensor<float
                     
             results.[0]
         )
-        
-        
-  
-type Sam(encoder : InferenceSession, decoder : InferenceSession, ?maxSize : int) =
+
+type Sam(encoder : InferenceSession, decoder : InferenceSession) =
     static let defaultMaxSize = 1024
     static let defaultEncoderPath = lazy (Utilities.get "sam_vit_b_01ec64.encoder.quant.onnx.zip")
     static let defaultDecoderPath = lazy (Utilities.get "sam_vit_b_01ec64.decoder.quant.onnx.zip")
 
-    let maxSize = defaultArg maxSize defaultMaxSize
-    
     member x.Encoder = encoder
     member x.Decoder = decoder
     
@@ -144,12 +145,25 @@ type Sam(encoder : InferenceSession, decoder : InferenceSession, ?maxSize : int)
     interface IDisposable with
         member x.Dispose() = x.Dispose()
     
-    new(encoder : string, decoder : string, ?maxSize : int) =
-        new Sam(new InferenceSession(encoder), new InferenceSession(decoder), ?maxSize = maxSize)
+    new(encoder : string, decoder : string, ?options : SessionOptions) =
+        
+        let dec =
+            match options with
+            | Some opt -> new InferenceSession(decoder, opt)
+            | None -> new InferenceSession(decoder)
+        
+        let enc =
+            match options with
+            | Some opt -> new InferenceSession(encoder, opt)
+            | None -> new InferenceSession(encoder)
+        
+        new Sam(enc, dec)
     
-    new(?maxSize : int) = new Sam(defaultEncoderPath.Value, defaultDecoderPath.Value, ?maxSize = maxSize)
+    new(?options : SessionOptions) = new Sam(defaultEncoderPath.Value, defaultDecoderPath.Value, ?options = options)
     
-    member x.BuildIndex(image : PixImage) =
+    member x.BuildIndex(image : PixImage, ?maxSize : int) =
+        let maxSize = defaultArg maxSize defaultMaxSize
+    
         let sam = x
         let processingSize =
             let aspect = float image.Size.X / float image.Size.Y
@@ -158,37 +172,33 @@ type Sam(encoder : InferenceSession, decoder : InferenceSession, ?maxSize : int)
             else
                 V2i(int (round (float maxSize * aspect)), maxSize)
                 
-        let scaledImage =
+        let input =
             use img = PixImageSharp.ToImage(image)
             img.Mutate (fun ctx ->
                 ctx.Resize(processingSize.X, processingSize.Y) |> ignore  
             )
-            let r = img.ToPixImage().ToPixImage<byte>()
-            let res = PixImage<float32>(Col.Format.RGB, r.Size)
-            res.GetMatrix<C3f>().SetMap(r.GetMatrix<C3b>(), fun (v : C3b) -> C3f(float32 v.R, float32 v.G, float32 v.B)) |> ignore
-            res
+            let r = img.ToPixImage().ToPixImage<byte>(Col.Format.RGB)
             
-        let input =
-            let v = scaledImage.Volume
+            let v = r.Volume
             let dims = [| int v.Size.Y; int v.Size.X; int v.Size.Z|]
-            let t = DenseTensor(Memory<float32>(Array.zeroCreate (scaledImage.Size.X * scaledImage.Size.Y * scaledImage.ChannelCount)), ReadOnlySpan<_>(dims))
+            let tensor = DenseTensor(Memory<float32>(Array.zeroCreate (int v.Size.X * int v.Size.Y * int v.Size.Z)), ReadOnlySpan<_>(dims))
             
-            NativeVolume.useDense t (fun dst ->
-                NativeVolume.using (scaledImage.Volume.Transformed ImageTrafo.Transpose) (fun src ->
-                    NativeVolume.copy src dst    
+            NativeVolume.useDense tensor (fun dst ->
+                NativeVolume.using (v.Transformed ImageTrafo.Transpose) (fun src ->
+                    NativeVolume.copyWith float32 src dst    
                 )
             )
-            t
-            
+            tensor
       
-        let inputName = sam.Encoder.InputNames |> Seq.head
+        use res =
+            sam.Encoder.Run [
+                NamedOnnxValue.CreateFromTensor(sam.Encoder.InputNames.[0], input)
+            ]
+        let res = res |> Seq.toArray
+        let imageEmbedding = res.[0].Value :?> DenseTensor<float32>
+        for r in res do r.Dispose()
         
-        let ip = NamedOnnxValue.CreateFromTensor(inputName, input)
-        use res = sam.Encoder.Run([ip])
-        
-        let imageEmbedding = Seq.head(res).Value :?> DenseTensor<float32>
-        
-        SamIndex(sam.Decoder, imageEmbedding, image.Size, scaledImage.Size)
+        SamIndex(sam.Decoder, imageEmbedding, image.Size, processingSize)
         
         
     

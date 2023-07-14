@@ -26,7 +26,7 @@ let main _args =
     let result =
         let res = image.ToPixImage<byte>().Copy()
         res.GetMatrix<C4b>().SetMap2 (res.GetMatrix<C4b>(), mat, fun old value ->
-            lerp old C4b.Red (0.7 * float value)    
+            lerp old C4b.Cyan (0.7 * float value)    
         ) |> ignore
         res
     

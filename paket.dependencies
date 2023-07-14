@@ -12,5 +12,5 @@ nuget Aardvark.Base.Incremental             ~> 5.2.24
 nuget Aardvark.Base.FSharp                  ~> 5.2.24
 nuget Aardvark.Base.Tensors                 ~> 5.2.24
 
-nuget Microsoft.ML.OnnxRuntime      ~> 1.15.1
+nuget Microsoft.ML.OnnxRuntime              ~> 1.15.1
 nuget System.Numerics.Tensors               ~> 0.1.0
