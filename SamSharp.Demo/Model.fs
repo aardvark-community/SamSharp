@@ -1,6 +1,7 @@
 namespace SamSharp.Demo
 
 open System
+open FSharp.Data.Adaptive
 open Adaptify
 open Aardvark.Base
 open Aardvark.Rendering
@@ -84,5 +85,6 @@ type Model =
         File    : option<string>
         Image   : option<PixImage>
         Index   : option<SamSharp.SamIndex>
+        Points  : IndexList<V2i * int>
         Mask    : option<Matrix<float32>>
     }

@@ -1,5 +1,5 @@
-//9b93b108-a6c7-9bd5-83a8-0bd41cb1a156
-//059b6a36-5530-a93e-a3f1-5e0aacb3abeb
+//ac66402c-0518-5ad5-04e9-ee33c4959552
+//63731b90-1c46-1359-d224-2f0a5c147c79
 #nowarn "49" // upper case patterns
 #nowarn "66" // upcast is unncecessary
 #nowarn "1337" // internal types
@@ -77,6 +77,7 @@ type AdaptiveModel(value : Model) =
     let _File_ = FSharp.Data.Adaptive.cval(value.File)
     let _Image_ = FSharp.Data.Adaptive.cval(value.Image)
     let _Index_ = FSharp.Data.Adaptive.cval(value.Index)
+    let _Points_ = FSharp.Data.Adaptive.clist(value.Points)
     let _Mask_ = FSharp.Data.Adaptive.cval(value.Mask)
     let mutable __value = value
     let __adaptive = FSharp.Data.Adaptive.AVal.custom((fun (token : FSharp.Data.Adaptive.AdaptiveToken) -> __value))
@@ -90,11 +91,13 @@ type AdaptiveModel(value : Model) =
             _File_.Value <- value.File
             _Image_.Value <- value.Image
             _Index_.Value <- value.Index
+            _Points_.Value <- value.Points
             _Mask_.Value <- value.Mask
     member __.Current = __adaptive
     member __.Camera = _Camera_
     member __.File = _File_ :> FSharp.Data.Adaptive.aval<Microsoft.FSharp.Core.option<Microsoft.FSharp.Core.string>>
     member __.Image = _Image_ :> FSharp.Data.Adaptive.aval<Microsoft.FSharp.Core.option<Aardvark.Base.PixImage>>
     member __.Index = _Index_ :> FSharp.Data.Adaptive.aval<Microsoft.FSharp.Core.option<SamSharp.SamIndex>>
+    member __.Points = _Points_ :> FSharp.Data.Adaptive.alist<(Aardvark.Base.V2i * Microsoft.FSharp.Core.int)>
     member __.Mask = _Mask_ :> FSharp.Data.Adaptive.aval<Microsoft.FSharp.Core.option<Aardvark.Base.Matrix<Microsoft.FSharp.Core.float32>>>
 

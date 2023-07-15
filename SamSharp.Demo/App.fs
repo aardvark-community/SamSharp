@@ -62,7 +62,7 @@ module Shader =
             let alpha = TexelOutline(V2d color.Size * v.tc)
             
             let c = lerp c.XYZ V3d.IOO m
-            let c = lerp c V3d.III alpha
+            let c = lerp c (V3d.III - c) alpha
             
             return V4d(c, 1.0)
         }
@@ -71,8 +71,11 @@ type Message =
     | CameraMessage of CameraController.Message
     | SetFile of string
     | SetIndex of PixImage * SamIndex
-    | SetMask of Matrix<float32>
     | Clear
+    | AddPositivePoint of V2i
+    | AddNegativePoint of V2i
+    | SetPoint of V2i
+    | ClearPoints
 
 module App =
     
@@ -85,13 +88,32 @@ module App =
             Image = None
             Index = None
             Mask = None
+            Points = IndexList.empty
         }
+    
+    let withMask (model : Model) =
+        match model.Index with
+        | Some idx ->
+            let query = model.Points |> IndexList.toList |> List.map (fun (px,v) -> Query.Point(px, v))
+            match query with
+            | [] ->
+                { model with Mask = None }
+            | query ->
+                let m = idx.Query query
+                { model with Mask = Some m }
+        | None ->
+            { model with Mask = None }
     
     let update (_env : Env<Message>) (model : Model) (msg : Message) =
         match msg with
+        | AddPositivePoint p -> withMask { model with Points = IndexList.add (p, 1) model.Points }
+        | AddNegativePoint p -> withMask { model with Points = IndexList.add (p, -1) model.Points }
+        | SetPoint p -> withMask { model with Points = IndexList.single (p, 1) }
+        | ClearPoints -> withMask { model with Points = IndexList.empty }
+        
         | CameraMessage message -> { model with Camera = CameraController.update model.Camera message }
         | SetFile s ->
-            { model with File = Some s; Index = None; Mask = None }
+            { model with File = Some s; Index = None; Mask = None; Points = IndexList.empty }
         | SetIndex (img, samIndex) ->
             let box = Box2d.FromCenterAndSize(V2d.Zero, V2d img.Size)
             let cam = CameraController.update model.Camera (CameraController.SetSceneBounds box)
@@ -99,11 +121,11 @@ module App =
             { model with
                 Index = Some samIndex
                 Image = Some img
+                Points = IndexList.empty
                 Mask = None
                 Camera = cam
             }
-        | SetMask m -> { model with Mask = Some m }
-        | Clear -> { model with File = None; Index = None; Mask = None }
+        | Clear -> { model with File = None; Index = None; Mask = None; Points = IndexList.empty }
         
     let view (file : option<string>) (env : Env<Message>) (m : AdaptiveModel) =
         
@@ -130,6 +152,13 @@ module App =
                 Width "100%"
                 Height "100%"
             ]
+            
+            
+            Dom.OnKeyDown (fun e ->
+                match e.Key with
+                | "Escape" -> env.Emit [ClearPoints]
+                | _ -> ()
+            )
             
             let startLoad (name : string) (data : byte[]) =
                 env.Emit [SetFile name] 
@@ -226,14 +255,18 @@ module App =
                 Sg.View (m.Camera.camera |> AVal.map (fun c -> CameraView.viewTrafo c.cameraView))
                 Sg.Proj (m.Camera.camera |> AVal.map (fun c -> Frustum.projTrafo c.frustum))
                 
+                
                 Sg.OnTap(fun e ->
                     match AVal.force m.Index, AVal.force m.Image with
                     | Some idx, Some img ->
                         let box = Box2d.FromCenterAndSize(V2d.Zero, V2d img.Size)
                         let px = V2i(round (e.WorldPosition.XY - box.Min))
                         let px = V2i(px.X, img.Size.Y - px.Y - 1)
-                        let m = idx.Query [ Query.Point(px, 1) ]
-                        env.Emit [SetMask m]
+                        
+                        
+                        if e.Shift then printfn "+"; env.Emit [AddPositivePoint px]
+                        elif e.Alt then printfn "-"; env.Emit [AddNegativePoint px]
+                        else env.Emit [SetPoint px]
                     | _ ->
                         ()
                 )
@@ -287,6 +320,8 @@ module App =
                     li { "zoom using the scroll-wheel" }
                     li { "drop an image in the window to load it" }
                     li { "left-click to start segmentation" }
+                    li { "hold shift to add positive points" }
+                    li { "hold alt to add negative points" }
                 }
             }
             
