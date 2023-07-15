@@ -9,19 +9,49 @@ open Aardvark.Dom
 
 module Shader =
     open FShade
+    
+    let samplesOffsets : V2d[] = 
+        Array.map (fun v -> v / 4.0) [|
+            V2d(1,1); V2d(-1,-3); V2d(-3,2); V2d(4,1);
+            V2d(-5,-2); V2d(2,5); V2d(5,3); V2d(3,-5);
+            V2d(-2,6); V2d(0,-7); V2d(-4,-6); V2d(-6,4);
+            V2d(-8,0); V2d(7,-4); V2d(6,7); V2d(-7,8)
+        |]
+
+    [<ReflectedDefinition>][<Inline>] //needs to be inline in order to support ddx/ddy
+    let TexelOutline(tc : V2d) : float = 
+
+        let pixelOffset = V2d.Max((ddx tc).Abs(), (ddy tc).Abs())
+
+        // define transparency of outlines 
+        let f = (max pixelOffset.X pixelOffset.Y) * 1.5 + 0.5
+        if f >= 1.0 then // if texel element difference x 1.5 + 0.5 is greater than 1 -> do not show outlines
+            0.0
+        else
+
+            let mutable cnt = 0
+            Preprocessor.unroll()
+            for i in 0..15 do
+                let s = tc + pixelOffset * samplesOffsets.[i]
+                if (V2i(tc) <> V2i(s)) then 
+                    cnt <- cnt + 1
+
+            (1.0 - f) * (float cnt / 16.0)
+
+    
     let color =
         sampler2d {
             texture uniform?DiffuseColorTexture
             addressU WrapMode.Wrap
             addressV WrapMode.Wrap
-            filter Filter.MinMagMipLinear
+            filter Filter.MinLinearMagPointMipLinear
         }
     let mask =
         sampler2d {
             texture uniform?Mask
             addressU WrapMode.Wrap
             addressV WrapMode.Wrap
-            filter Filter.MinMagLinear
+            filter Filter.MinLinearMagPointMipLinear
         }
     
     let texture (v : Effects.Vertex) =
@@ -29,7 +59,12 @@ module Shader =
             let c = color.Sample(v.tc)
             let m = mask.Sample(v.tc).X * 0.6
             
-            return V4d(lerp c.XYZ V3d.IOO m, 1.0)
+            let alpha = TexelOutline(V2d color.Size * v.tc)
+            
+            let c = lerp c.XYZ V3d.IOO m
+            let c = lerp c V3d.III alpha
+            
+            return V4d(c, 1.0)
         }
 
 type Message =
