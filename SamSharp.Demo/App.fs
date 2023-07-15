@@ -33,50 +33,166 @@ module Shader =
         }
 
 [<AutoOpen>]
-module DomExtensions = 
-    type Dom with
-        static member OnDropFiles(onDrop : list<string> -> unit, ?elementToToggle : string) =
-            Dom.OnBoot(
-                (fun c -> 
-                    task {
-                        while true do
-                            let! msg = c.Receive()
-                            match msg with
-                            | ChannelMessage.Text str ->
-                                try
-                                    let r = System.Text.Json.JsonDocument.Parse str
-                                    let files =
-                                        let cnt = r.RootElement.GetArrayLength()
-                                        List.init cnt (fun i -> r.RootElement.[i].GetString())
-                                    
-                                    onDrop files
-                                with e ->
-                                    onDrop []
-                                    printfn "parse error: %A" e
-                            | _ ->
-                                ()
-                    }
-                ),
-                fun c ->
-                    String.concat "\n" [
-                        match elementToToggle with
-                        | Some id ->
-                            $"function display(v) {{ document.getElementById('{id}').style.display = v; }}"
-                        | None ->
-                            $"function display(v) {{ }}"
-                            
-                        $"__THIS__.addEventListener('dragenter', function(e) {{ e.preventDefault(); display('flex'); }});"
-                        $"__THIS__.addEventListener('dragleave', function(e) {{ e.preventDefault(); display('none'); }});"
-                        $"__THIS__.addEventListener('dragover', function(e) {{ e.preventDefault(); }});"
-                        $"__THIS__.addEventListener('drop', function(e) {{"
-                        $"  display('none');"
-                        $"  const fs = Array.from(e.dataTransfer.files).map((f) => f.path);"
-                        $"  {c}.send(JSON.stringify(fs));"
-                        $"  e.preventDefault();"
-                        $"}});"
-                    ]
-            )
+module DomExtensions =
+    open Aardvark.Dom.Extensions
+    open Aardvark.Dom.Extensions.NodeBuilderHelpers
+    open Aardvark.Dom.NodeBuilderHelpers
+    
+    type DropValue =
+        | Text of mime : string * content : string
+        | File of name : string * mime : string * data : byte[]
+    
+    module Dom =
+        type OnDrop = OnDrop of (list<DropValue> -> unit)
+    
+    type DropOverlayState =
+        {
+            OnDropActions : list<list<DropValue> -> unit>
+        }
+    
+    type DropOverlayBuilder() =
+        inherit StatefulNodeLikeBuilder<DropOverlayState, DomNode, Aardvark.Dom.NodeBuilderHelpers.NodeBuilderState>()
         
+        member x.Yield(Dom.OnDrop action) =
+            fun (s : DropOverlayState) ->
+                { s with OnDropActions = action :: s.OnDropActions }, NodeLikeBuilderState.Empty
+               
+        member x.Yield(text : string) =
+            x.Yield(DomNode.Text (AVal.constant text))
+            
+        member x.Yield(text : aval<string>) =
+            x.Yield(DomNode.Text text)
+                
+        override x.Run(run : DropOverlayState -> DropOverlayState * NodeLikeBuilderState<DomNode>) =
+            let state, res = run { OnDropActions = [] }
+            
+            let id = RandomElementId()
+            
+            let overlay = 
+                div {
+                    Id id
+                    Style [
+                        PointerEvents "none"
+                        Background "rgba(30,30,30,0.7)"
+                        Width "100%"
+                        Height "100%"
+                        Top "0px"
+                        Left "0px"
+                        Position "absolute"
+                        ZIndex 10
+                        Display "none"
+                        FontFamily "monospace"
+                        JustifyContent "center"
+                        AlignItems "center"
+                    ]
+                    
+                    res.attributes.ToAMap()
+                    res.children.ToAList()
+                }
+            
+            let onDrop (things : list<DropValue>) =
+                for action in state.OnDropActions do
+                    action things
+                    
+            
+            let rx = System.Text.RegularExpressions.Regex @"^data:(?<mime>[^;]+);base64,"
+            
+            let atts =
+                AttributeTable [
+                    Dom.OnBoot(
+                        (fun c -> 
+                            task {
+                                while true do
+                                    let! msg = c.Receive()
+                                    match msg with
+                                    | ChannelMessage.Text str ->
+                                        try
+                                            let r = System.Text.Json.JsonDocument.Parse str
+                                            
+                                            let o = r.RootElement
+                                            
+                                            let result = System.Collections.Generic.List()
+                                            for i in 0 .. o.GetArrayLength() - 1 do
+                                                let e = o.[i]
+                                                let typ = e.GetProperty("Type").GetString()
+                                                let data = e.GetProperty("Data").GetString()
+                                                
+                                                let m = rx.Match data
+                                                if m.Success then
+                                                    let mime = m.Groups.[1].Value
+                                                    let data = System.Convert.FromBase64CharArray(data.ToCharArray(), m.Length, data.Length - m.Length)
+                                                    result.Add(File(typ, mime, data))
+                                                else
+                                                    result.Add(Text(typ, data))
+                                            
+                                            onDrop (CSharpList.toList result)
+                                        with e ->
+                                            onDrop []
+                                            printfn "parse error: %A" e
+                                    | _ ->
+                                        ()
+                            }
+                        ),
+                        fun c ->
+                            String.concat "\n" [
+                                $"function display(v) {{ document.getElementById('{id}').style.display = v; }}"
+                                $"__THIS__.addEventListener('dragenter', function(e) {{ e.preventDefault(); display('flex'); }});"
+                                $"__THIS__.addEventListener('dragleave', function(e) {{ e.preventDefault(); display('none'); }});"
+                                $"__THIS__.addEventListener('dragover', function(e) {{ e.preventDefault(); }});"
+                                
+                                "function readFileAsync(name, file) {"
+                                "   return new Promise((resolve, error) => {"
+                                "       let reader = new FileReader();"
+                                "       reader.onload = function(e) {{"
+                                "           resolve({ Type: name, Data: e.target.result });"
+                                "       }};"
+                                "       reader.onerror = function(e) {{"
+                                "           error(e);"
+                                "       }};"
+                                "       reader.readAsDataURL(file);"
+                                "   });"
+                                "}"
+                                
+                                $"function handleDrop(data) {{"
+                                $"    const items = Array.from(data.items).map((i) => {{"
+                                $"      if(i.kind === 'file') {{"
+                                $"        const file = i.getAsFile();"
+                                $"        return readFileAsync(file.name, file);"
+                                $"      }}"
+                                $"      else {{"
+                                $"        const typ = i.type;"
+                                $"        return new Promise((resolve, err) => i.getAsString((value) => resolve({{ Type: typ, Data: value }})));"
+                                $"      }}"
+                                $"    }});"
+                                $"    Promise.all(items).then((values) => {{"
+                                $"        {c}.send(JSON.stringify(values));"
+                                $"    }});"
+                                $"}}"
+                                
+                                $"__THIS__.addEventListener('drop', function(e) {{"
+                                $"  display('none');"
+                                $"  handleDrop(e.dataTransfer);"
+                                $"  e.preventDefault();"
+                                $"}});"
+                                
+                                $"__THIS__.addEventListener('paste', function(e) {{"
+                                $"  display('none');"
+                                $"  handleDrop(e.clipboardData);"
+                                $"  e.preventDefault();"
+                                $"}});"
+                            ]
+                    )
+                ]
+            
+            let cs =
+                NodeList [overlay]
+            
+            { attributes = atts; children = cs } 
+        
+    
+    
+    type Dom with
+        static member DropOverlay = DropOverlayBuilder()
 
 type Message =
     | CameraMessage of CameraController.Message
@@ -103,8 +219,11 @@ module App =
     let update (env : Env<Message>) (model : Model) (msg : Message) =
         match msg with
         | CameraMessage message -> { model with Camera = CameraController.update model.Camera message }
-        | SetFile s -> { model with File = Some s; Index = None; Mask = None }
+        | SetFile s ->
+            env.Start "let l = document.getElementById('loader'); if(l) { l.style.display = 'flex'; }"
+            { model with File = Some s; Index = None; Mask = None }
         | SetIndex (img, samIndex) ->
+            env.Start "let l = document.getElementById('loader'); if(l) { l.style.display = 'none'; }"
             let box = Box2d.FromCenterAndSize(V2d.Zero, V2d img.Size)
             let cam = CameraController.update model.Camera (CameraController.SetSceneBounds box)
             let cam = CameraController.update cam (CameraController.BestFit box)
@@ -124,13 +243,7 @@ module App =
                 | Some img -> PixTexture2d(PixImageMipMap [| img :> PixImage |], TextureParams.mipmapped) :> ITexture
                 | None -> NullTexture() :> ITexture
             )
-        // let img = PixImageSharp.Create file
-        // let idx = sam.BuildIndex img
-        // let box = Box2d.FromCenterAndSize(V2d.Zero, V2d img.Size)
-        // env.Emit [ CameraController.SetSceneBounds box ]
-        //
-        //let mask = cval (Matrix<float32>(V2i.II))
-        
+            
         let maskTexture =
             m.Mask |> AVal.map (function
                 | Some m ->
@@ -140,7 +253,6 @@ module App =
                     NullTexture() :> ITexture
             )
         
-        let mutable initial = true
         body {
             Style [
                 Padding "0"
@@ -150,49 +262,48 @@ module App =
                 Height "100%"
             ]
             
-            let startLoad (file : string) =
-                env.Emit [SetFile file]
+            let startLoad (name : string) (data : byte[]) =
+                env.Emit [SetFile name] 
                 
-                env.Start "document.getElementById('loader').style.display = 'flex';"
                 task {
                     do! Async.SwitchToThreadPool()
                     try
-                        let img = PixImageSharp.Create file
+                        use ms = new System.IO.MemoryStream(data)
+                        let img = PixImageSharp.Create ms
                         let idx = sam.BuildIndex img
                         env.Emit [SetIndex(img, idx)]
-                        env.Start "document.getElementById('loader').style.display = 'none';"
                     with _ ->
                         env.Emit [Clear]
                 } |> ignore
             
-            Dom.OnDropFiles((fun fs ->
-                let file = Seq.head fs
-                startLoad file
-                
-            ), "overlay")
-          
             
-            div {
-                Id "overlay"
+            Dom.DropOverlay {
                 Style [
-                    PointerEvents "none"
-                    Background "rgba(30,30,30,0.7)"
-                    Width "100%"
-                    Height "100%"
-                    Top "0px"
-                    Left "0px"
-                    Position "fixed"
-                    ZIndex 10
-                    Display "none"
                     Color "white"
                     FontSize "80px"
                     FontFamily "monospace"
-                    JustifyContent "center"
-                    AlignItems "center"
                 ]
                 
-                "+"
+                Dom.OnDrop (fun things ->
+                    let data =
+                        things |> List.tryPick (function
+                            | File(name, mime, data) when mime.StartsWith "image/" ->
+                                Some (name, data)
+                            | Text("text/plain", str) ->
+                                if System.IO.File.Exists str then
+                                    try Some (System.IO.Path.GetFileName str, File.readAllBytes str)
+                                    with _ -> None
+                                else
+                                    None
+                            | _ ->
+                                None   
+                        )
+                    match data with
+                    | Some (name, data) -> startLoad name data
+                    | None -> ()
+                )
                 
+                "+"
             }
             
             div {
@@ -242,14 +353,14 @@ module App =
                         let box = Box2d.FromCenterAndSize(V2d.Zero, V2d img.Size)
                         let px = V2i(round (e.WorldPosition.XY - box.Min))
                         let px = V2i(px.X, img.Size.Y - px.Y - 1)
-                        Log.line "%A" px
                         let m = idx.Query [ Query.Point(px, 1) ]
                         env.Emit [SetMask m]
                     | _ ->
                         ()
                 )
                 RenderControl.OnReady (fun _ ->
-                    startLoad file 
+                    if System.IO.File.Exists file then
+                        startLoad (System.IO.Path.GetFileName file) (System.IO.File.ReadAllBytes file)
                 )
                 RenderControl.OnResize (fun e ->
                     env.Emit [ CameraMessage (CameraController.Resize e.Size) ]

@@ -213,12 +213,13 @@ module CameraController =
         
         
         att {
-            Dom.OnPointerDown(fun e ->
+            Dom.OnPointerDown((fun e ->
                 if shouldPan e then env.Emit [StartPan(V2d e.ClientPosition)] 
-            )
-            Dom.OnPointerUp(fun e ->
+            ), pointerCapture = true)
+            Dom.OnPointerUp((fun e ->
                 env.Emit [StopPan] 
-            )
+            ), pointerCapture = true)
+            
             Dom.OnMouseWheel(fun e ->
                 if shouldZoom e then env.Emit [Wheel(e.DeltaY, V2d e.ClientPosition)]
             )

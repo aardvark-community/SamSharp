@@ -16,9 +16,9 @@ nuget Microsoft.ML.OnnxRuntime              ~> 1.15.1
 nuget System.Numerics.Tensors               ~> 0.1.0
 
 
-nuget Aardvark.Dom                          ~> 1.0.0-prerelease0034
-nuget Aardvark.Dom.Elm                      ~> 1.0.0-prerelease0034    
-nuget Aardvark.Dom.Giraffe                  ~> 1.0.0-prerelease0034    
+nuget Aardvark.Dom                          ~> 1.0.0-prerelease0036
+nuget Aardvark.Dom.Elm                      ~> 1.0.0-prerelease0036    
+nuget Aardvark.Dom.Giraffe                  ~> 1.0.0-prerelease0036    
 nuget Aardium                               ~> 2.0.10-prerelease0007
 nuget Aardvark.Application.Slim.GL          ~> 5.3.8
 nuget Adaptify.Core                         ~> 1.1.9
