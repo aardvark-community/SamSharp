@@ -6,6 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="paket.references" />
+    <Compile Include="DropOverlay.fs" />
     <Compile Include="Model.fs" />
     <Compile Include="Model.g.fs" />
     <Compile Include="CameraController.fs" />

@@ -18,8 +18,8 @@ let main args =
 
 
     let file =
-        if args.Length > 0 then args.[0]
-        else Path.combine [__SOURCE_DIRECTORY__; ".."; "images"; "plants.png"]
+        if args.Length > 0 then Some args.[0]
+        else Path.combine [__SOURCE_DIRECTORY__; ".."; "images"; "plants.png"] |> Some
         
     let run (ctx : DomContext) =
         App.start ctx (App.app file)
