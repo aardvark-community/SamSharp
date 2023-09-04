@@ -79,7 +79,7 @@ type Message =
 
 module App =
     
-    let sam = new Sam()
+    let sam = new Sam() //"/Users/schorsch/Development/samexporter/output_models/sam_vit_h_4b8939.encoder.onnx", "/Users/schorsch/Development/samexporter/output_models/sam_vit_h_4b8939.decoder.onnx")
     
     let initial =
         {

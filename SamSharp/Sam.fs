@@ -12,12 +12,12 @@ open Microsoft.FSharp.NativeInterop
 
 
 [<AutoOpen>]
-module private Utilities =
+module Utilities =
     open System.IO
     
-    type Marker = Marker
+    type internal Marker = Marker
     
-    let get (name : string) =
+    let internal get (name : string) =
         let names = typeof<Marker>.Assembly.GetManifestResourceNames() 
         let name = names |> Array.find (fun n -> n.EndsWith name)
         use s = typeof<Marker>.Assembly.GetManifestResourceStream(name)

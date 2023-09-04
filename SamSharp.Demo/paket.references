@@ -8,10 +8,12 @@ Aardvark.Base.Tensors
 
 System.Numerics.Tensors
 Microsoft.ML.OnnxRuntime 
+BERTTokenizers
 
 Aardvark.Dom                 
 Aardvark.Dom.Elm             
-Aardvark.Dom.Giraffe         
+Aardvark.Dom.Giraffe   
+Aardvark.Dom.Bootstrap      
 Aardium                      
 Aardvark.Application.Slim.GL 
 Adaptify.Core

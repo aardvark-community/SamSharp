@@ -1,0 +1,801 @@
+ 0: initializing aardvark ........................................................................
+ 0:   System Information:
+ 0:     System:      Darwin 22.5.0 Darwin Kernel Version 22.5.0: Thu Jun  8 22:22:20 PDT 2023; root:xnu-8796.121.3~7/RELEASE_ARM64_T6000
+ 0:     Processor:   10 core arm64
+ 0:     Process:     arm64
+ 0:     Framework:   .NET 6.0.11
+ 0:     ERROR: arm64 is not officially supported yet: some features may not work correctly
+ 0:   skipped LoadNativeDependencies for System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+ 0:   trying to load native dependencies for SamSharp.Demo, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     skipped LoadNativeDependencies for System.Text.RegularExpressions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     skipped LoadNativeDependencies for System.IO.Compression, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+ 0:     skipped LoadNativeDependencies for System.IO.Compression.ZipFile, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+ 0:     skipped LoadNativeDependencies for System.Xml.XDocument, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     skipped LoadNativeDependencies for System.Private.Xml.Linq, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51
+ 0:     skipped LoadNativeDependencies for System.Private.Xml, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51
+ 0:     skipped LoadNativeDependencies for System.Security.Cryptography.Algorithms, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     skipped LoadNativeDependencies for System.Security.Cryptography.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   skipped LoadNativeDependencies for System.Runtime, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   trying to load native dependencies for JetBrains.Microsoft.Extensions.DotNetDeltaApplier, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   skipped LoadNativeDependencies for System.Linq, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   skipped LoadNativeDependencies for System.Collections, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   trying to load native dependencies for Aardvark.Application.Slim.GL, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   skipped LoadNativeDependencies for netstandard, Version=2.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51
+ 0:   trying to load native dependencies for Aardvark.Application, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   trying to load native dependencies for Aardvark.Rendering, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   skipped LoadNativeDependencies for System.Collections.Concurrent, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   trying to load native dependencies for FSharp.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   skipped LoadNativeDependencies for System.IO.Pipes, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   trying to load native dependencies for Aardvark.Dom, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     Loading native dependencies for Aardvark.Dom, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+ 0:       found: mac/AMD64/libturbojpeg.dylib
+ 0:       found: mac/ARM64/libturbojpeg.dylib
+ 0:       copy libturbojpeg.dylib to /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Dom-55273270-88bd-ed9b-25bb-a9b092e37a38-64/libturbojpeg.dylib
+ 0:       found: linux/AMD64/libturbojpeg.so
+ 0:       found: windows/AMD64/turbojpeg.dll
+ 0:       found: windows/x86/turbojpeg.dll
+ 0:     Loading native dependencies for Aardvark.Dom, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 0.010 s
+ 0:   skipped LoadNativeDependencies for System.Console, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   trying to load native dependencies for Aardvark.Dom.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   trying to load native dependencies for Aardium, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   trying to load native dependencies for Aardvark.Base, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   trying to load native dependencies for Aardvark.Base.FSharp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   skipped LoadNativeDependencies for System.Threading, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   skipped LoadNativeDependencies for Microsoft.Extensions.Hosting, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0:   skipped LoadNativeDependencies for System.Net.Sockets, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   skipped LoadNativeDependencies for Microsoft.Extensions.Hosting.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0:   skipped LoadNativeDependencies for System.Net.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   skipped LoadNativeDependencies for Microsoft.AspNetCore.Hosting.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0:   skipped LoadNativeDependencies for Microsoft.AspNetCore, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0:   skipped LoadNativeDependencies for Microsoft.Win32.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   skipped LoadNativeDependencies for System.Diagnostics.Tracing, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   skipped LoadNativeDependencies for System.Runtime.InteropServices.RuntimeInformation, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   skipped LoadNativeDependencies for System.Runtime.Loader, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   trying to load native dependencies for Aardvark.Base.Telemetry, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   skipped LoadNativeDependencies for System.Threading.ThreadPool, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   skipped LoadNativeDependencies for System.Threading.Thread, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   skipped LoadNativeDependencies for System.Memory, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51
+ 0:   skipped LoadNativeDependencies for System.Runtime.InteropServices, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   Loading plugins ............................................................................
+ 0:     using cache dir: /Users/schorsch/.local/share/Aardvark/Cache
+ 0:     [LoadPlugins] Using plugin cache file name: /Users/schorsch/.local/share/Aardvark/Cache/Plugins/SamSharp.Demo_0.0.0.0_plugins.xml
+ 0:     skipped LoadNativeDependencies for System.Runtime.Serialization.Xml, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     skipped LoadNativeDependencies for System.Private.DataContractSerialization, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     skipped LoadNativeDependencies for System.Xml.ReaderWriter, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     skipped LoadNativeDependencies for System.Text.Encoding.Extensions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     skipped LoadNativeDependencies for System.Private.Uri, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     skipped LoadNativeDependencies for System.Runtime.Serialization.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     skipped LoadNativeDependencies for System.Reflection.Emit.ILGeneration, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     skipped LoadNativeDependencies for System.Reflection.Emit.Lightweight, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     skipped LoadNativeDependencies for System.Reflection.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     [ReadCacheFile] loaded cache file: /Users/schorsch/.local/share/Aardvark/Cache/Plugins/SamSharp.Demo_0.0.0.0_plugins.xml
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly Microsoft.DotNet.PlatformAbstractions due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly SixLabors.ImageSharp due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly FShade.Core due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly System.Text.Encoding.CodePages due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly System.Numerics.Tensors due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly FsPickler due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly Microsoft.Extensions.DependencyModel due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly FShade.Imperative due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly System.Text.Encodings.Web due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly System.Text.Json due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly Unofficial.Typography due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly Newtonsoft.Json due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly Microsoft.ML.OnnxRuntime due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly CommonMark due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly Microsoft.IO.RecyclableMemoryStream due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly FShade.SpirV due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly System.Collections.Immutable due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly FShade.GLSL due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly LibTessDotNet due to filter
+ 0:     [GetPluginAssemblyPaths] Ignoring assembly OpenTK due to filter
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Rendering.Text.dll
+ 0:     [GetPluginAssemblyPaths] retrying to load because cache outdated /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Dom.Core.dll
+ 0:     skipped LoadNativeDependencies for System.Reflection.Metadata, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     skipped LoadNativeDependencies for System.Collections.Immutable, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Geometry.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Giraffe.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Utf8Json.dll
+ 0:     [GetPluginAssemblyPaths] retrying to load because cache outdated /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Dom.Server.dll
+ 0:     skipped LoadNativeDependencies for System.IO.MemoryMappedFiles, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     [GetPluginAssemblyPaths] plugin found /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Dom.Server.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Giraffe.ViewEngine.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Rendering.Vulkan.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Rendering.GL.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Application.Slim.GL.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardium.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Rendering.Vulkan.Wrapper.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Base.Tensors.CSharp.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Rendering.dll
+ 0:     [GetPluginAssemblyPaths] retrying to load because not in cache /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Dom.Bootstrap.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Silk.NET.Core.dll
+ 0:     [GetPluginAssemblyPaths] retrying to load because cache outdated /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Dom.Remote.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Silk.NET.GLFW.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Base.TypeProviders.dll
+ 0:     [GetPluginAssemblyPaths] retrying to load because cache outdated /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Dom.Giraffe.dll
+ 0:     [GetPluginAssemblyPaths] retrying to load because cache outdated /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Dom.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Adaptify.Core.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Base.Tensors.dll
+ 0:     [GetPluginAssemblyPaths] retrying to load because cache outdated /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/SamSharp.Demo.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/GLSLangSharp.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/SamSharp.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Base.FSharp.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Application.Slim.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Base.Telemetry.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/FSharp.Core.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Base.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Application.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/FSys.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Assembler.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Base.Runtime.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.SceneGraph.dll
+ 0:     [GetPluginAssemblyPaths] retrying to load because cache outdated /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Dom.Elm.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.FontProvider.Runtime.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Base.Essentials.dll
+ 0:     [GetPluginAssemblyPaths] cache found for: /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0/Aardvark.Base.Incremental.dll
+ 0:     trying to load native dependencies for Aardvark.Dom.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     trying to load native dependencies for Aardvark.Base.Tensors, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   Loading plugins .................................................................... 0.042 s
+ 0:   [Introspection] Ignoring assembly System.Runtime due to filter
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime.Numerics due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections.Concurrent due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime.InteropServices due to filter
+ 0:   [Introspection] Ignoring assembly System.Security.Cryptography.Algorithms due to filter
+ 0:   [Introspection] Ignoring assembly System.Linq due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime.Serialization.Primitives due to filter
+ 0:   [Introspection] Ignoring assembly System.Text.Json due to filter
+ 0:   [Introspection] Ignoring assembly System.Xml.ReaderWriter due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections.Immutable due to filter
+ 0:   [Introspection] Ignoring assembly System.Text.RegularExpressions due to filter
+ 0:   [Introspection] Ignoring assembly System.Reflection.Metadata due to filter
+ 0:   [Introspection] Ignoring assembly System.Xml.XDocument due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime.InteropServices.RuntimeInformation due to filter
+ 0:   [Introspection] Ignoring assembly System.IO.Compression due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime.Serialization.Xml due to filter
+ 0:   [Introspection] Ignoring assembly System.Diagnostics.Process due to filter
+ 0:   [Introspection] Ignoring assembly System.ObjectModel due to filter
+ 0:   [Introspection] Ignoring assembly System.Linq.Expressions due to filter
+ 0:   [Introspection] Ignoring assembly System.ComponentModel.TypeConverter due to filter
+ 0:   [Introspection] Ignoring assembly System.Threading due to filter
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly System.Console due to filter
+ 0:   [Introspection] Ignoring assembly System.ComponentModel.Primitives due to filter
+ 0:   [Introspection] Ignoring assembly System.Drawing.Primitives due to filter
+ 0:   [Introspection] Ignoring assembly System.Security.Cryptography.Primitives due to filter
+ 0:   [Introspection] Ignoring assembly System.Net.WebClient due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime.Loader due to filter
+ 0:   [Introspection] Ignoring assembly System.IO.Compression.ZipFile due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime.Intrinsics due to filter
+ 0:   [Introspection] Ignoring assembly System.Threading.Thread due to filter
+ 0:   [Introspection] Ignoring assembly System.Diagnostics.StackTrace due to filter
+ 0:   trying to load native dependencies for Aardvark.SceneGraph, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly FsPickler due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly System.Reflection.Emit due to filter
+ 0:   [Introspection] Ignoring assembly System.Reflection.Emit.ILGeneration due to filter
+ 0:   [Introspection] Ignoring assembly System.Reflection.Emit.Lightweight due to filter
+ 0:   trying to load native dependencies for Aardvark.Base.TypeProviders, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime due to filter
+ 0:   [Introspection] Ignoring assembly System.Reflection due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime due to filter
+ 0:   [Introspection] Ignoring assembly FShade.Core due to filter
+ 0:   [Introspection] Ignoring assembly FShade.Imperative due to filter
+ 0:   [Introspection] Ignoring assembly System.Reflection.Emit due to filter
+ 0:   trying to load native dependencies for Aardvark.Base.Tensors.CSharp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly FShade.GLSL due to filter
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly SixLabors.ImageSharp due to filter
+ 0:   [Introspection] Ignoring assembly System.Memory due to filter
+ 0:   trying to load native dependencies for Aardvark.Base.Incremental, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly System.Reflection.Emit.Lightweight due to filter
+ 0:   [Introspection] Ignoring assembly System.Reflection.Emit.ILGeneration due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime due to filter
+ 0:   trying to load native dependencies for Aardvark.Base.Essentials, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections.Immutable due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly FShade.Core due to filter
+ 0:   [Introspection] Ignoring assembly FShade.Imperative due to filter
+ 0:   trying to load native dependencies for Aardvark.Rendering.Text, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly CommonMark due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly Unofficial.Typography due to filter
+ 0:   [Introspection] Ignoring assembly FShade.Core due to filter
+ 0:   [Introspection] Ignoring assembly FShade.Imperative due to filter
+ 0:   [Introspection] Ignoring assembly LibTessDotNet due to filter
+ 0:   [Introspection] Ignoring assembly FShade.Core due to filter
+ 0:   [Introspection] Ignoring assembly FShade.Imperative due to filter
+ 0:   [Introspection] Ignoring assembly System.Text.Json due to filter
+ 0:   trying to load native dependencies for Aardvark.FontProvider.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections due to filter
+ 0:   [Introspection] Ignoring assembly System.Console due to filter
+ 0:   [Introspection] Ignoring assembly System.Memory due to filter
+ 0:   [Introspection] Ignoring assembly System.Text.RegularExpressions due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections.Concurrent due to filter
+ 0:   trying to load native dependencies for Aardvark.Geometry, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly LibTessDotNet due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime due to filter
+ 0:   [Introspection] Ignoring assembly System.Threading due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime.InteropServices due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore.Http.Abstractions due to filter
+ 0:   trying to load native dependencies for SamSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     Loading native dependencies for SamSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null 
+ 0:       found: mac/AMD64/libonnxruntime.dylib
+ 0:       found: mac/ARM64/libonnxruntime.dylib
+ 0:       copy libonnxruntime.dylib to /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/SamSharp-fa753af6-1825-9fa1-60ad-ca77e1b64b5f-64/libonnxruntime.dylib
+ 0:       found: linux/AMD64/libonnxruntime.so
+ 0:       found: windows/AMD64/onnxruntime_providers_shared.lib
+ 0:       found: windows/AMD64/onnxruntime_providers_shared.dll
+ 0:       found: windows/AMD64/onnxruntime.dll
+ 0:       found: windows/AMD64/onnxruntime.lib
+ 0:     Loading native dependencies for SamSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null 0.000 s
+ 0:   [Introspection] Ignoring assembly System.Runtime due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.ML.OnnxRuntime due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections due to filter
+ 0:   [Introspection] Ignoring assembly SixLabors.ImageSharp due to filter
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly System.IO.Compression due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly FShade.Core due to filter
+ 0:   trying to load native dependencies for Aardvark.Dom.Elm, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly System.Runtime due to filter
+ 0:   [Introspection] Ignoring assembly System.Text.Json due to filter
+ 0:   trying to load native dependencies for Adaptify.Core, Version=1.1.9.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections.Concurrent due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly System.Threading.Thread due to filter
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly OpenTK due to filter
+ 0:   trying to load native dependencies for Aardvark.Rendering.GL, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     Loading native dependencies for Aardvark.Rendering.GL, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null 
+ 0:       found: linux/AMD64/glvm.so
+ 0:       found: mac/AMD64/glvm.dylib
+ 0:       found: mac/AMD64/libglvm.dylib
+ 0:       found: mac/ARM64/libglvm.dylib
+ 0:       copy libglvm.dylib to /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.GL-73712451-3af1-3c03-e904-f5d2fd86d88e-64/libglvm.dylib
+ 0:       found: windows/AMD64/glvm.dll
+ 0:       found: windows/AMD64/glvm.exp
+ 0:       found: windows/AMD64/glvm.lib
+ 0:       found: windows/AMD64/glvm.pdb
+ 0:       found: windows/x86/glvm.dll
+ 0:       found: windows/x86/glvm.exp
+ 0:       found: windows/x86/glvm.lib
+ 0:       found: windows/x86/glvm.pdb
+ 0:     Loading native dependencies for Aardvark.Rendering.GL, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null 0.000 s
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly FShade.GLSL due to filter
+ 0:   [Introspection] Ignoring assembly OpenTK due to filter
+ 0:   trying to load native dependencies for Aardvark.Base.Runtime, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly System.Reflection.Emit due to filter
+ 0:   [Introspection] Ignoring assembly System.Reflection.Emit.Lightweight due to filter
+ 0:   [Introspection] Ignoring assembly System.Reflection.Emit.ILGeneration due to filter
+ 0:   [Introspection] Ignoring assembly FShade.Core due to filter
+ 0:   trying to load native dependencies for Aardvark.Assembler, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     Loading native dependencies for Aardvark.Assembler, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null 
+ 0:       found: linux/AMD64/libjitmem.so
+ 0:       found: mac/AMD64/libjitmem.dylib
+ 0:       found: mac/ARM64/libjitmem.dylib
+ 0:       copy libjitmem.dylib to /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Assembler-409287e1-e21f-fe28-5430-6b9ef4564794-64/libjitmem.dylib
+ 0:       found: windows/AMD64/jitmem.dll
+ 0:       found: windows/AMD64/jitmem.lib
+ 0:     Loading native dependencies for Aardvark.Assembler, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null 0.000 s
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly System.Memory due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime.CompilerServices.Unsafe due to filter
+ 0:   [Introspection] Ignoring assembly FShade.Imperative due to filter
+ 0:   [Introspection] Ignoring assembly System.Memory due to filter
+ 0:   [Introspection] Ignoring assembly FsPickler due to filter
+ 0:   trying to load native dependencies for Aardvark.Application.Slim, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     Loading native dependencies for Aardvark.Application.Slim, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null 
+ 0:       found: linux/AMD64/libglfw.so.3
+ 0:       found: mac/AMD64/compileInfo.txt
+ 0:       found: mac/AMD64/libglfw.3.dylib
+ 0:       found: mac/AMD64/libglfw.dylib
+ 0:       found: mac/AMD64/LICENSE.txt
+ 0:       found: mac/ARM64/compileInfo.txt
+ 0:       copy compileInfo.txt to /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Application.Slim-64b4c580-317a-e849-e591-262b5451e1b5-64/compileInfo.txt
+ 0:       found: mac/ARM64/libglfw.3.dylib
+ 0:       copy libglfw.3.dylib to /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Application.Slim-64b4c580-317a-e849-e591-262b5451e1b5-64/libglfw.3.dylib
+ 0:       found: mac/ARM64/libglfw.dylib
+ 0:       copy libglfw.dylib to /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Application.Slim-64b4c580-317a-e849-e591-262b5451e1b5-64/libglfw.dylib
+ 0:       found: mac/ARM64/LICENSE.txt
+ 0:       copy LICENSE.txt to /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Application.Slim-64b4c580-317a-e849-e591-262b5451e1b5-64/LICENSE.txt
+ 0:       found: windows/AMD64/glfw3.dll
+ 0:       found: windows/x86/glfw3.dll
+ 0:     Loading native dependencies for Aardvark.Application.Slim, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null 0.000 s
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   trying to load native dependencies for Silk.NET.GLFW, Version=2.15.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly System.Runtime due to filter
+ 0:   trying to load native dependencies for Silk.NET.Core, Version=2.15.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly System.Runtime due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime.InteropServices due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections.Concurrent due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.DotNet.PlatformAbstractions due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.Extensions.DependencyModel due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime.CompilerServices.Unsafe due to filter
+ 0:   [Introspection] Ignoring assembly System.Threading due to filter
+ 0:   [Introspection] Ignoring assembly System.Threading.Thread due to filter
+ 0:   [Introspection] Ignoring assembly System.Memory due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime.InteropServices.RuntimeInformation due to filter
+ 0:   [Introspection] Ignoring assembly System.Linq due to filter
+ 0:   [Introspection] Ignoring assembly System.Diagnostics.Process due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime.InteropServices due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime.InteropServices.RuntimeInformation due to filter
+ 0:   [Introspection] Ignoring assembly System.Memory due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   trying to load native dependencies for FSys, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.Extensions.Hosting due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.Extensions.Hosting.Abstractions due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore.Hosting.Abstractions due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore.WebSockets due to filter
+ 0:   trying to load native dependencies for Aardvark.Dom.Giraffe, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly System.Runtime due to filter
+ 0:   [Introspection] Ignoring assembly System.Net.WebSockets due to filter
+ 0:   trying to load native dependencies for Aardvark.Dom.Remote, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly System.Runtime due to filter
+ 0:   [Introspection] Ignoring assembly System.Text.Json due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections due to filter
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly System.Web.HttpUtility due to filter
+ 0:   [Introspection] Ignoring assembly System.Threading due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections.Concurrent due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore.Http.Abstractions due to filter
+ 0:   [Introspection] Ignoring assembly System.Text.Json due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   trying to load native dependencies for Aardvark.Rendering.Vulkan, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     Loading native dependencies for Aardvark.Rendering.Vulkan, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null 
+ 0:       found: remap.xml
+ 0:       found: linux/AMD64/libvkvm.so
+ 0:       found: mac/AMD64/libvkvm.dylib
+ 0:       found: mac/AMD64/libvulkan-1.dylib
+ 0:       found: mac/ARM64/libvkvm.dylib
+ 0:       copy libvkvm.dylib to /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.Vulkan-549a609e-0799-aaa9-773f-600e21f99c6c-64/libvkvm.dylib
+ 0:       found: mac/ARM64/libvulkan-1.dylib
+ 0:       copy libvulkan-1.dylib to /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.Vulkan-549a609e-0799-aaa9-773f-600e21f99c6c-64/libvulkan-1.dylib
+ 0:       found: windows/AMD64/vkvm.dll
+ 0:       found: windows/AMD64/vkvm.exp
+ 0:       found: windows/AMD64/vkvm.lib
+ 0:       found: windows/AMD64/vkvm.pdb
+ 0:       found: windows/x86/vkvm.dll
+ 0:       found: windows/x86/vkvm.exp
+ 0:       found: windows/x86/vkvm.lib
+ 0:       found: windows/x86/vkvm.pdb
+ 0:     Loading native dependencies for Aardvark.Rendering.Vulkan, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null 0.008 s
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   trying to load native dependencies for Aardvark.Rendering.Vulkan.Wrapper, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly FShade.GLSL due to filter
+ 0:   [Introspection] Ignoring assembly FShade.Core due to filter
+ 0:   [Introspection] Ignoring assembly FShade.Imperative due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections.Immutable due to filter
+ 0:   [Introspection] Ignoring assembly FsPickler due to filter
+ 0:   trying to load native dependencies for GLSLangSharp, Version=0.4.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     Loading native dependencies for GLSLangSharp, Version=0.4.0.0, Culture=neutral, PublicKeyToken=null 
+ 0:       found: linux/AMD64/libGLSLangNative.so
+ 0:       found: mac/AMD64/libGLSLangNative.dylib
+ 0:       found: mac/ARM64/libGLSLangNative.dylib
+ 0:       copy libGLSLangNative.dylib to /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/GLSLangSharp-d2d054ca-af95-fad3-43a0-0b947ababa67-64/libGLSLangNative.dylib
+ 0:       found: windows/AMD64/GLSLangNative.dll
+ 0:       found: windows/AMD64/GLSLangNative.lib
+ 0:     Loading native dependencies for GLSLangSharp, Version=0.4.0.0, Culture=neutral, PublicKeyToken=null 0.000 s
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly System.Net.WebSockets due to filter
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly System.Threading due to filter
+ 0:   [Introspection] Ignoring assembly OpenTK due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime.InteropServices.RuntimeInformation due to filter
+ 0:   [Introspection] Ignoring assembly System.Runtime.InteropServices due to filter
+ 0:   [Introspection] Ignoring assembly System.IO.MemoryMappedFiles due to filter
+ 0:   [Introspection] Ignoring assembly System.Text.RegularExpressions due to filter
+ 0:   [Introspection] Ignoring assembly System.Threading.Thread due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections.Concurrent due to filter
+ 0:   [Introspection] Ignoring assembly System.Text.Json due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections due to filter
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly System.Web.HttpUtility due to filter
+ 0:   trying to load native dependencies for Giraffe, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly System.Runtime due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore.Http.Abstractions due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.Net.Http.Headers due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore.Http.Extensions due to filter
+ 0:   [Introspection] Ignoring assembly System.Text.RegularExpressions due to filter
+ 0:   [Introspection] Ignoring assembly System.Security.Claims due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.Extensions.Primitives due to filter
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly System.ComponentModel due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.Extensions.Logging.Abstractions due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore.Hosting.Abstractions due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore.Http.Features due to filter
+ 0:   trying to load native dependencies for Giraffe.ViewEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   [Introspection] Ignoring assembly System.Runtime due to filter
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore.Routing due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore.Routing.Abstractions due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.IO.RecyclableMemoryStream due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.Extensions.DependencyInjection.Abstractions due to filter
+ 0:   [Introspection] Ignoring assembly Newtonsoft.Json due to filter
+ 0:   [Introspection] Ignoring assembly System.Linq due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore.Authorization due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore.Authentication.Abstractions due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore.ResponseCaching.Abstractions due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.Extensions.Features due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore.Http due to filter
+ 0:   [Introspection] Ignoring assembly System.ComponentModel.TypeConverter due to filter
+ 0:   [Introspection] Ignoring assembly System.Xml.ReaderWriter due to filter
+ 0:   [Introspection] Ignoring assembly System.Xml.XmlSerializer due to filter
+ 0:   [Introspection] Ignoring assembly System.Text.Json due to filter
+ 0:   [Introspection] Ignoring assembly System.Memory due to filter
+ 0:   trying to load native dependencies for Utf8Json, Version=1.3.7.0, Culture=neutral, PublicKeyToken=8a73d3ba7e392e27
+ 0:   [Introspection] Ignoring assembly netstandard due to filter
+ 0:   [Introspection] Ignoring assembly System.Reflection.Emit.Lightweight due to filter
+ 0:   [Introspection] Ignoring assembly System.Reflection.Emit.ILGeneration due to filter
+ 0:   [Introspection] Ignoring assembly System.Reflection.Emit due to filter
+ 0:   [Introspection] Ignoring assembly System.Threading.Tasks.Extensions due to filter
+ 0:   [Introspection] Ignoring assembly System.Text.Encoding.Extensions due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.Net.Http.Headers due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections.Concurrent due to filter
+ 0:   [Introspection] Ignoring assembly System.Threading due to filter
+ 0:   [Introspection] Ignoring assembly FSharp.Data.Adaptive due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.Extensions.DependencyInjection.Abstractions due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.AspNetCore.Hosting due to filter
+ 0:   [Introspection] Ignoring assembly FShade.Imperative due to filter
+ 0:   [Introspection] Ignoring assembly Microsoft.ML.OnnxRuntime due to filter
+ 0:   [Introspection] Ignoring assembly System.Text.RegularExpressions due to filter
+ 0:   [Introspection] Ignoring assembly System.Text.Json due to filter
+ 0:   [Introspection] Ignoring assembly System.Collections due to filter
+ 0:     [cache miss] SamSharp.Demo, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     skipped LoadNativeDependencies for FSharp.Data.Adaptive, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     skipped LoadNativeDependencies for Microsoft.AspNetCore.Http.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0:     skipped LoadNativeDependencies for FShade.Core, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     skipped LoadNativeDependencies for FShade.Imperative, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] FSharp.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     [cache miss] Aardvark.Dom, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     skipped LoadNativeDependencies for System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51
+ 0:     [cache hit ] Aardvark.Base, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   initializing Constants ............................................................. 0.004 s
+ 0:     [cache hit ] Aardvark.Base.Telemetry, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.SceneGraph, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Rendering, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Base.FSharp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   initializing CustomPicklerProvider .........................................................
+ 0:     skipped LoadNativeDependencies for FsPickler, Version=5.3.2.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache miss] SamSharp.Demo, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] FSharp.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     [cache miss] Aardvark.Dom, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Base, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Base.Telemetry, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.SceneGraph, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Rendering, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Base.FSharp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Base.TypeProviders, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Base.Tensors.CSharp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Base.Tensors, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Base.Incremental, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Base.Essentials, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Rendering.Text, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.FontProvider.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Geometry, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache miss] Aardvark.Dom.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] SamSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache miss] Aardvark.Dom.Elm, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Adaptify.Core, Version=1.1.9.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Application.Slim.GL, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Application, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Rendering.GL, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Base.Runtime, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Assembler, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Application.Slim, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Silk.NET.GLFW, Version=2.15.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Silk.NET.Core, Version=2.15.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardium, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] FSys, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache miss] Aardvark.Dom.Giraffe, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     skipped LoadNativeDependencies for System.Net.WebSockets, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:     [cache miss] Aardvark.Dom.Remote, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache miss] Aardvark.Dom.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Rendering.Vulkan, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Rendering.Vulkan.Wrapper, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] GLSLangSharp, Version=0.4.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Giraffe, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Giraffe.ViewEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Utf8Json, Version=1.3.7.0, Culture=neutral, PublicKeyToken=8a73d3ba7e392e27
+ 0:     installing pickler: Aardvark.Base.Picklers.AdaptivePicklers
+ 0:   initializing CustomPicklerProvider ................................................. 0.039 s
+ 0:     [cache hit ] Aardvark.Base.TypeProviders, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Base.Tensors.CSharp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Base.Tensors, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   initializing PixImageSharp .................................................................
+ 0:     skipped LoadNativeDependencies for SixLabors.ImageSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13
+ 0:     skipped LoadNativeDependencies for System.Numerics.Vectors, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0:   initializing PixImageSharp ......................................................... 0.013 s
+ 0:     [cache hit ] Aardvark.Base.Incremental, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Base.Essentials, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Rendering.Text, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.FontProvider.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Geometry, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache miss] Aardvark.Dom.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] SamSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache miss] Aardvark.Dom.Elm, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Adaptify.Core, Version=1.1.9.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Application.Slim.GL, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Application, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Rendering.GL, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Base.Runtime, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Assembler, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Application.Slim, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Silk.NET.GLFW, Version=2.15.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Silk.NET.Core, Version=2.15.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardium, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] FSys, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache miss] Aardvark.Dom.Giraffe, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache miss] Aardvark.Dom.Remote, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache miss] Aardvark.Dom.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:   initializing JpegTransfer .......................................................... 0.004 s
+ 0:   initializing SharedMemoryTransfer .................................................. 0.004 s
+ 0:     [cache hit ] Aardvark.Rendering.Vulkan, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Aardvark.Rendering.Vulkan.Wrapper, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] GLSLangSharp, Version=0.4.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Giraffe, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Giraffe.ViewEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 0:     [cache hit ] Utf8Json, Version=1.3.7.0, Culture=neutral, PublicKeyToken=8a73d3ba7e392e27
+ 0: initializing aardvark ........................................................ [0.23x] 0.278 s
+ 0: skipped LoadNativeDependencies for System.Diagnostics.Process, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0: skipped LoadNativeDependencies for System.ComponentModel.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0: skipped LoadNativeDependencies for OpenTK, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4
+ 0: skipped LoadNativeDependencies for System.Collections.NonGeneric, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0: skipped LoadNativeDependencies for Microsoft.DotNet.PlatformAbstractions, Version=3.1.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.DependencyModel, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0: WARNING: OpenGL 4.6 not working: VersionUnavailable
+ 0: WARNING: OpenGL 4.5 not working: VersionUnavailable
+ 0: WARNING: OpenGL 4.4 not working: VersionUnavailable
+ 0: WARNING: OpenGL 4.3 not working: VersionUnavailable
+ 0: WARNING: OpenGL 4.2 not working: VersionUnavailable
+ 0: OpenGL 4.1 working
+ 0: skipped LoadNativeDependencies for System.Runtime.Extensions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0: skipped LoadNativeDependencies for System.Threading.Timer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0: skipped LoadNativeDependencies for System.Buffers, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51
+ 0: skipped LoadNativeDependencies for System.Runtime.Intrinsics, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51
+ 0: WARNING: [GL] could not query sample count of default framebuffer.
+ 0: probing paths for glvm
+ 0:   /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0
+ 0:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.GL-73712451-3af1-3c03-e904-f5d2fd86d88e-64
+ 0: trying to resolve native library glvm.dylib
+ 0: probing paths for glvm
+ 0:   /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0
+ 0:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Dom-55273270-88bd-ed9b-25bb-a9b092e37a38-64
+ 0:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/SamSharp-fa753af6-1825-9fa1-60ad-ca77e1b64b5f-64
+ 0:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.GL-73712451-3af1-3c03-e904-f5d2fd86d88e-64
+ 0:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Assembler-409287e1-e21f-fe28-5430-6b9ef4564794-64
+ 0:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Application.Slim-64b4c580-317a-e849-e591-262b5451e1b5-64
+ 0:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.Vulkan-549a609e-0799-aaa9-773f-600e21f99c6c-64
+ 0:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/GLSLangSharp-d2d054ca-af95-fad3-43a0-0b947ababa67-64
+ 0: [Introspection] loaded native library glvm.dylib from /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.GL-73712451-3af1-3c03-e904-f5d2fd86d88e-64/libglvm.dylib
+ 0: [Introspection] loaded native library glvm from glvm.dylib
+ 0: WARNING: [GL] could not query sample count of default framebuffer.
+ 0: skipped LoadNativeDependencies for FShade.GLSL, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+ 0: initializing OpenGL runtime ..................................................................
+ 0:   skipped LoadNativeDependencies for mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+ 0:   [GL] vendor: Apple
+ 0:   [GL] renderer: Apple M1 Max
+ 0:   [GL] version: 4.1 Metal - 83.1
+ 0:   [GL] profileMask: 1
+ 0:   [GL] contextFlags: 1
+ 0:   [GL] extensions
+ 0:     GL_ARB_blend_func_extended
+ 0:     GL_ARB_draw_buffers_blend
+ 0:     GL_ARB_draw_indirect
+ 0:     GL_ARB_ES2_compatibility
+ 0:     GL_ARB_explicit_attrib_location
+ 0:     GL_ARB_gpu_shader_fp64
+ 0:     GL_ARB_gpu_shader5
+ 0:     GL_ARB_instanced_arrays
+ 0:     GL_ARB_internalformat_query
+ 0:     GL_ARB_occlusion_query2
+ 0:     GL_ARB_sample_shading
+ 0:     GL_ARB_sampler_objects
+ 0:     GL_ARB_separate_shader_objects
+ 0:     GL_ARB_shader_bit_encoding
+ 0:     GL_ARB_shader_subroutine
+ 0:     GL_ARB_shading_language_include
+ 0:     GL_ARB_tessellation_shader
+ 0:     GL_ARB_texture_buffer_object_rgb32
+ 0:     GL_ARB_texture_cube_map_array
+ 0:     GL_ARB_texture_gather
+ 0:     GL_ARB_texture_query_lod
+ 0:     GL_ARB_texture_rgb10_a2ui
+ 0:     GL_ARB_texture_storage
+ 0:     GL_ARB_texture_swizzle
+ 0:     GL_ARB_timer_query
+ 0:     GL_ARB_transform_feedback2
+ 0:     GL_ARB_transform_feedback3
+ 0:     GL_ARB_vertex_attrib_64bit
+ 0:     GL_ARB_vertex_type_2_10_10_10_rev
+ 0:     GL_ARB_viewport_array
+ 0:     GL_EXT_debug_label
+ 0:     GL_EXT_debug_marker
+ 0:     GL_EXT_framebuffer_multisample_blit_scaled
+ 0:     GL_EXT_texture_compression_s3tc
+ 0:     GL_EXT_texture_filter_anisotropic
+ 0:     GL_EXT_texture_sRGB_decode
+ 0:     GL_APPLE_client_storage
+ 0:     GL_APPLE_container_object_shareable
+ 0:     GL_APPLE_flush_render
+ 0:     GL_APPLE_rgb_422
+ 0:     GL_APPLE_row_bytes
+ 0:     GL_APPLE_texture_range
+ 0:     GL_NV_texture_barrier
+ 0:   vendor:   "Apple"
+ 0:   renderer: "Apple M1 Max"
+ 0:   version:  OpenGL 4.1.0 / GLSL 4.1.0  Core
+ 0:   probing paths for glvm
+ 0:     /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0
+ 0:     /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Dom-55273270-88bd-ed9b-25bb-a9b092e37a38-64
+ 0:     /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/SamSharp-fa753af6-1825-9fa1-60ad-ca77e1b64b5f-64
+ 0:     /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.GL-73712451-3af1-3c03-e904-f5d2fd86d88e-64
+ 0:     /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Assembler-409287e1-e21f-fe28-5430-6b9ef4564794-64
+ 0:     /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Application.Slim-64b4c580-317a-e849-e591-262b5451e1b5-64
+ 0:     /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.Vulkan-549a609e-0799-aaa9-773f-600e21f99c6c-64
+ 0:     /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/GLSLangSharp-d2d054ca-af95-fad3-43a0-0b947ababa67-64
+ 0:   [Introspection] loaded native library glvm from /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.GL-73712451-3af1-3c03-e904-f5d2fd86d88e-64/libglvm.dylib
+ 0:   [GL] Could not get "glDispatchCompute" procedure address
+ 0:   [GL] Could not get "glNamedBufferData" procedure address
+ 0:   [GL] Could not get "glNamedBufferSubData" procedure address
+ 0:   [GL] Could not get "glMemoryBarrier" procedure address
+ 0:   [GL] Could not get "glBindImageTexture" procedure address
+ 0:   [GL] Could not get "glMultiDrawArraysIndirect" procedure address
+ 0:   [GL] Could not get "glMultiDrawElementsIndirect" procedure address
+ 0: initializing OpenGL runtime .......................................................... 0.011 s
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Configuration.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.DependencyInjection.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.DependencyInjection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for System.ComponentModel, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.AspNetCore.Hosting, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Configuration, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Configuration.EnvironmentVariables, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.AspNetCore.Server.Kestrel.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.AspNetCore.Server.Kestrel, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.AspNetCore.Server.Kestrel.Transport.Quic, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for System.Net.Quic, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0: trying to resolve native library libmsquic.dylib
+ 0: probing paths for libmsquic
+ 0:   /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0
+ 0:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Dom-55273270-88bd-ed9b-25bb-a9b092e37a38-64
+ 0:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/SamSharp-fa753af6-1825-9fa1-60ad-ca77e1b64b5f-64
+ 0:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.GL-73712451-3af1-3c03-e904-f5d2fd86d88e-64
+ 0:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Assembler-409287e1-e21f-fe28-5430-6b9ef4564794-64
+ 0:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Application.Slim-64b4c580-317a-e849-e591-262b5451e1b5-64
+ 0:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.Vulkan-549a609e-0799-aaa9-773f-600e21f99c6c-64
+ 0:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/GLSLangSharp-d2d054ca-af95-fad3-43a0-0b947ababa67-64
+ 0: [Introspection] could not load native library libmsquic.dylib
+ 0: skipped LoadNativeDependencies for Microsoft.AspNetCore.Server.IIS, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.AspNetCore.Server.IISIntegration, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.FileProviders.Physical, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.FileProviders.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Configuration.FileExtensions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Configuration.Binder, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Configuration.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for System.IO.FileSystem.Watcher, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.FileSystemGlobbing, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Options, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Logging.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Logging.EventLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Logging.Configuration, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Options.ConfigurationExtensions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Logging.Console, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Logging.Debug, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Logging.EventSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.Features, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.AspNetCore.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.AspNetCore.Hosting.Server.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.AspNetCore.Connections.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.AspNetCore.HostFiltering, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.AspNetCore.HttpOverrides, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.AspNetCore.Routing, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.AspNetCore.Routing.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Extensions.ObjectPool, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for System.ObjectModel, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0: skipped LoadNativeDependencies for Microsoft.IO.RecyclableMemoryStream, Version=2.3.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ 0: skipped LoadNativeDependencies for System.IO.Pipelines, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51
+ 0: skipped LoadNativeDependencies for Microsoft.AspNetCore.WebSockets, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for Microsoft.Net.Http.Headers, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 0: skipped LoadNativeDependencies for System.Net.Security, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0: skipped LoadNativeDependencies for System.Security.Cryptography.X509Certificates, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0: skipped LoadNativeDependencies for System.Collections.Specialized, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 1: skipped LoadNativeDependencies for Microsoft.AspNetCore.Http.Features, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 1: skipped LoadNativeDependencies for System.Security.Claims, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 1: skipped LoadNativeDependencies for Microsoft.AspNetCore.WebUtilities, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ 2: trying to resolve native library turbojpeg
+ 2: probing paths for turbojpeg
+ 2:   /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0
+ 2:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Dom-55273270-88bd-ed9b-25bb-a9b092e37a38-64
+ 2:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/SamSharp-fa753af6-1825-9fa1-60ad-ca77e1b64b5f-64
+ 2:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.GL-73712451-3af1-3c03-e904-f5d2fd86d88e-64
+ 2:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Assembler-409287e1-e21f-fe28-5430-6b9ef4564794-64
+ 2:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Application.Slim-64b4c580-317a-e849-e591-262b5451e1b5-64
+ 2:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.Vulkan-549a609e-0799-aaa9-773f-600e21f99c6c-64
+ 2:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/GLSLangSharp-d2d054ca-af95-fad3-43a0-0b947ababa67-64
+ 2: [Introspection] loaded native library turbojpeg from /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Dom-55273270-88bd-ed9b-25bb-a9b092e37a38-64/libturbojpeg.dylib
+ 2: trying to resolve native library turbojpeg
+ 2: skipped LoadNativeDependencies for System.Web.HttpUtility, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51
+ 2: using SharedMemoryTransfer
+ 2: skipped LoadNativeDependencies for Microsoft.ML.OnnxRuntime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=f27f157f0a5b7bb6
+ 2: trying to resolve native library onnxruntime
+ 2: probing paths for onnxruntime
+ 2:   /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0
+ 2:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Dom-55273270-88bd-ed9b-25bb-a9b092e37a38-64
+ 2:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/SamSharp-fa753af6-1825-9fa1-60ad-ca77e1b64b5f-64
+ 2:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.GL-73712451-3af1-3c03-e904-f5d2fd86d88e-64
+ 2:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Assembler-409287e1-e21f-fe28-5430-6b9ef4564794-64
+ 2:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Application.Slim-64b4c580-317a-e849-e591-262b5451e1b5-64
+ 2:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.Vulkan-549a609e-0799-aaa9-773f-600e21f99c6c-64
+ 2:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/GLSLangSharp-d2d054ca-af95-fad3-43a0-0b947ababa67-64
+ 2: [Introspection] loaded native library onnxruntime from /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/SamSharp-fa753af6-1825-9fa1-60ad-ca77e1b64b5f-64/libonnxruntime.dylib
+ 3: probing paths for jitmem
+ 3:   /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0
+ 3:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Assembler-409287e1-e21f-fe28-5430-6b9ef4564794-64
+ 3: trying to resolve native library jitmem.dylib
+ 3: probing paths for jitmem
+ 3:   /Users/schorsch/Development/SamSharp/SamSharp.Demo/bin/Debug/net6.0
+ 3:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Dom-55273270-88bd-ed9b-25bb-a9b092e37a38-64
+ 3:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/SamSharp-fa753af6-1825-9fa1-60ad-ca77e1b64b5f-64
+ 3:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.GL-73712451-3af1-3c03-e904-f5d2fd86d88e-64
+ 3:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Assembler-409287e1-e21f-fe28-5430-6b9ef4564794-64
+ 3:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Application.Slim-64b4c580-317a-e849-e591-262b5451e1b5-64
+ 3:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Rendering.Vulkan-549a609e-0799-aaa9-773f-600e21f99c6c-64
+ 3:   /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/GLSLangSharp-d2d054ca-af95-fad3-43a0-0b947ababa67-64
+ 3: [Introspection] loaded native library jitmem.dylib from /var/folders/yd/8r9cpzrj0jg347w0f84ptj000000gn/T/aardvark-native/Aardvark.Assembler-409287e1-e21f-fe28-5430-6b9ef4564794-64/libjitmem.dylib
+ 3: [Introspection] loaded native library jitmem from jitmem.dylib
+ 3: skipped LoadNativeDependencies for System.Reflection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 3: skipped LoadNativeDependencies for System.Runtime.Numerics, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 3: skipped LoadNativeDependencies for System.Runtime.Serialization.Formatters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 3: skipped LoadNativeDependencies for System.Globalization, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 3: WARNING: [GL] Failed to retrieve program binary: InvalidOperation
+ 3: skipped LoadNativeDependencies for System.Reflection.Emit, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 3: trying to load native dependencies for Aardvark.Rendering.GL.Writers, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+ 3: trying to load native dependencies for ReflectionEmitDelegateTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+ 3: skipped LoadNativeDependencies for System.Linq.Expressions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 3: trying to load native dependencies for Anonymously Hosted DynamicMethods Assembly, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+ 3: WARNING: [GL] Internal format queries not supported, assuming mipmap generation is supported
+ 4: skipped LoadNativeDependencies for System.Diagnostics.StackTrace, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
