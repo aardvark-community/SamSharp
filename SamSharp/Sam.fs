@@ -196,9 +196,10 @@ type Sam(encoder : InferenceSession, decoder : InferenceSession) =
             ]
         let res = res |> Seq.toArray
         let imageEmbedding = res.[0].Value :?> DenseTensor<float32>
-        for r in res do r.Dispose()
         
-        SamIndex(sam.Decoder, imageEmbedding, image.Size, processingSize)
+        
+        try SamIndex(sam.Decoder, imageEmbedding.Clone() :?> DenseTensor<float32>, image.Size, processingSize)
+        finally for r in res do r.Dispose()
         
         
     
