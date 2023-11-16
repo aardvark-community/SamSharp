@@ -6,6 +6,7 @@ open Aardvark.Base
 open Aardvark.Rendering
 open FSharp.Data.Adaptive
 open Aardvark.Dom
+open System.IO
 
 module Shader =
     open FShade
@@ -163,6 +164,43 @@ module App =
             let startLoad (name : string) (data : byte[]) =
                 env.Emit [SetFile name] 
                 
+                //task {
+                //    do! Async.SwitchToThreadPool()
+                //    try
+                //        use ms = new System.IO.MemoryStream(data)
+                //        let img = PixImageSharp.Create ms
+                //        Log.line $"{name}"
+                //        let cacheFile = name+".samindex"
+                //        let createAndSave() = 
+                //            let idx = sam.BuildIndex img
+                //            use dst = File.Open(cacheFile, FileMode.OpenOrCreate, FileAccess.Write)
+                //            Log.startTimed "Saving %s" cacheFile
+                //            SamIndex.Save(idx,dst)
+                //            Log.stop()
+                //            idx
+                //        let loadFromDisk() =
+                //            use fs = File.Open(cacheFile, FileMode.Open, FileAccess.Read)
+                //            match SamIndex.TryLoad(fs,sam.Decoder) with 
+                //            | None -> createAndSave()
+                //            | Some idx -> idx
+                //        let idx = 
+                //            if File.Exists(cacheFile) then 
+                //                try 
+                //                    Log.startTimed "Loading %s" cacheFile
+                //                    let res = loadFromDisk()
+                //                    Log.stop()
+                //                    res
+                //                with e -> 
+                //                    Log.error "%A" e
+                //                    createAndSave()
+                //            else 
+                //                createAndSave()
+                        
+                //        env.Emit [SetIndex(img, idx)]
+                //    with _ ->
+                //        env.Emit [Clear]
+                //} |> ignore
+
                 task {
                     do! Async.SwitchToThreadPool()
                     try

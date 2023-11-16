@@ -1,6 +1,7 @@
 ﻿namespace SamSharp
 
 open System
+open System.IO
 open Microsoft.ML.OnnxRuntime
 open Aardvark.Base
 open SixLabors.ImageSharp
@@ -60,6 +61,8 @@ type SamIndex internal(decoder : InferenceSession, embedding : DenseTensor<float
 
     member x.InputSize = inputSize
     member x.ImageSize = imageSize
+    member x.Embedding = embedding
+    
     
     member x.Query (query : list<Query>) =
         let scale = V2d imageSize / V2d inputSize
@@ -129,6 +132,60 @@ type SamIndex internal(decoder : InferenceSession, embedding : DenseTensor<float
                     
             results.[0]
         )
+
+    static member Save(index : SamIndex, dst : Stream) =
+        let data = index.Embedding.Buffer.ToArray()
+        let dims = index.Embedding.Dimensions.ToArray()
+        use w = new System.IO.BinaryWriter(dst, Text.Encoding.UTF8, true)
+
+        w.Write "SAMINDEX"
+        w.Write 1
+
+        w.Write index.InputSize.X
+        w.Write index.InputSize.Y
+        w.Write index.ImageSize.X
+        w.Write index.ImageSize.Y
+
+        w.Write dims.Length
+        for i in 0..dims.Length-1 do
+            w.Write dims.[i]
+
+        w.Write data.Length
+        for i in 0..data.Length-1 do
+            w.Write data.[i]
+
+    static member TryLoad(s : Stream, decoder : InferenceSession) =
+        try 
+            use r = new BinaryReader(s, Text.Encoding.UTF8, true)
+            if r.ReadString() <> "SAMINDEX" then 
+                Log.error "String SAMINDEX not found"
+                None
+            else 
+                let version = r.ReadInt32()
+                if version > 1 then 
+                    Log.error "Version > 1" 
+                    None
+                else 
+                    let inputSize = V2i(r.ReadInt32(),r.ReadInt32())
+                    let imageSize = V2i(r.ReadInt32(),r.ReadInt32())
+                    let dimsLength = r.ReadInt32()
+                    let dimsArr = Array.zeroCreate dimsLength
+                    for i in 0..dimsLength-1 do 
+                        let dim = r.ReadInt32()
+                        dimsArr.[i] <- dim
+                    let dataLength = r.ReadInt32()
+                    let dataArr = Array.zeroCreate dataLength
+                    for i in 0..dataLength-1 do
+                        let data = r.ReadSingle()
+                        dataArr.[i] <- data
+                    let dimsSpan = ReadOnlySpan(dimsArr)
+                    let dataMemory = Memory(dataArr)
+                    let embedding = DenseTensor(dataMemory, dimsSpan)
+                    let idx = SamIndex(decoder, embedding, inputSize, imageSize)
+                    Some idx
+        with e -> 
+            Log.error "%A" e
+            None
 
 type Sam(encoder : InferenceSession, decoder : InferenceSession) =
     static let defaultMaxSize = 1024
