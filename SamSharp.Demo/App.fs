@@ -1,5 +1,6 @@
 namespace SamSharp.Demo
 
+open Aardvark.Data
 open SamSharp
 open Adaptify
 open Aardvark.Base
@@ -7,6 +8,7 @@ open Aardvark.Rendering
 open FSharp.Data.Adaptive
 open Aardvark.Dom
 open System.IO
+
 
 module Shader =
     open FShade
@@ -133,7 +135,7 @@ module App =
         let texture = 
             m.Image |> AVal.map (function
                 | Some img -> PixTexture2d(PixImageMipMap [| img |], TextureParams.mipmapped) :> ITexture
-                | None -> NullTexture() :> ITexture
+                | None -> NullTexture.Instance 
             )
             
         let maskTexture =
@@ -142,7 +144,7 @@ module App =
                     let img = PixImage<float32>(Col.Format.Gray, m.AsVolume())
                     PixTexture2d(PixImageMipMap [| img :> PixImage |], TextureParams.empty) :> ITexture
                 | None ->
-                    NullTexture() :> ITexture
+                    NullTexture.Instance 
             )
         
         body {
@@ -208,7 +210,8 @@ module App =
                         let img = PixImageSharp.Create ms
                         let idx = sam.BuildIndex img
                         env.Emit [SetIndex(img, idx)]
-                    with _ ->
+                    with ex ->
+                        printfn "%A" ex
                         env.Emit [Clear]
                 } |> ignore
             

@@ -1,6 +1,7 @@
 ﻿namespace SamSharp
 
 open System
+open Aardvark.Data
 open System.IO
 open Microsoft.ML.OnnxRuntime
 open Aardvark.Base
@@ -253,6 +254,7 @@ type Sam(encoder : InferenceSession, decoder : InferenceSession) =
             ]
         let res = res |> Seq.toArray
         let imageEmbedding = res.[0].Value :?> DenseTensor<float32>
+        for r in res do r.Dispose()
         
         
         try SamIndex(sam.Decoder, imageEmbedding.Clone() :?> DenseTensor<float32>, image.Size, processingSize)

@@ -8,3 +8,4 @@ Aardvark.Base.Tensors
 
 System.Numerics.Tensors
 Microsoft.ML.OnnxRuntime 
+Aardvark.PixImage.ImageSharp
