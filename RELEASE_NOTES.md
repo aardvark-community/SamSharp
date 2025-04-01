@@ -1,3 +1,6 @@
+### 0.0.4
+* updates
+
 ### 0.0.3
 * SamIndex save load
 
